@@ -1,3 +1,4 @@
+import 'package:betterrank/config/routes/app_router.dart';
 import 'package:betterrank/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +7,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: ThemeData(
         appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
         colorScheme: ColorScheme.fromSwatch(
@@ -15,7 +16,7 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: Container(),
+      routerConfig: AppRouter.router,
     );
   }
 }
