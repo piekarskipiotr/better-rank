@@ -1,12 +1,14 @@
-import 'package:flutter/cupertino.dart';
+import 'package:betterrank/config/routes/app_routes.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouter {
-  static const root = '/';
-
   static final GoRouter _router = GoRouter(
     routes: <GoRoute>[
-      GoRoute(path: root, builder: (context, state) => Container()),
+      GoRoute(
+        path: AppRoutes.root,
+        builder: (context, state) => Container(),
+      ),
     ],
   );
 
