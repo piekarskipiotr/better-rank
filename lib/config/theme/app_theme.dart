@@ -5,12 +5,13 @@ class AppTheme {
   static final light = ThemeData(
     useMaterial3: true,
     colorScheme: const ColorScheme.light(),
+    scaffoldBackgroundColor: Colors.white.withOpacity(0.8),
   );
 
   static final dark = ThemeData(
     useMaterial3: true,
     colorScheme: const ColorScheme.dark(),
-    scaffoldBackgroundColor: Colors.black,
+    scaffoldBackgroundColor: Colors.black.withOpacity(0.8),
   );
 
   static void initSystemChromeSettings() {
