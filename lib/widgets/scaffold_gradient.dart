@@ -1,4 +1,5 @@
 import 'package:betterrank/config/config.dart';
+import 'package:betterrank/data/models/gradient_circle.dart';
 import 'package:flutter/material.dart';
 
 class ScaffoldGradient extends StatefulWidget {
@@ -17,6 +18,8 @@ class _ScaffoldGradientState extends State<ScaffoldGradient>
     with SingleTickerProviderStateMixin {
 
   late Scaffold _scaffold;
+
+  // animations
   late Animation<double> animation;
   late AnimationController controller;
   final Tween<double> _rotationTween = Tween(begin: -1, end: 1);
@@ -37,7 +40,7 @@ class _ScaffoldGradientState extends State<ScaffoldGradient>
       })
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
-          controller.reset();
+          controller.repeat(reverse: true);
         } else if (status == AnimationStatus.dismissed) {
           controller.forward();
         }
@@ -83,18 +86,9 @@ class CirclePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final convertedValue = value * 100;
-    final r1 = 254 + convertedValue;
-    final r2 = 420 + convertedValue;
-    final r3 = 480 + convertedValue;
-    final rect = Rect.fromLTWH(60, r1, 300, 300);
-    final rect2 = Rect.fromLTWH(260, r2, 300, 300);
-    final rect3 = Rect.fromLTWH(90, r3, 300, 300);
-
-    _drawCircle(
-      canvas,
-      rect,
-      const LinearGradient(
+    GradientCircle(
+      rect: const Rect.fromLTWH(60, 254, 300, 300),
+      gradient: const LinearGradient(
         begin: Alignment.topRight,
         end: Alignment.bottomLeft,
         colors: [
@@ -102,12 +96,12 @@ class CirclePainter extends CustomPainter {
           AppColors.pink,
         ],
       ),
-    );
+      move: value,
+    ).draw(canvas);
 
-    _drawCircle(
-      canvas,
-      rect2,
-      const LinearGradient(
+    GradientCircle(
+      rect: const Rect.fromLTWH(260, 420, 300, 300),
+      gradient: const LinearGradient(
         begin: Alignment.topRight,
         end: Alignment.bottomLeft,
         colors: [
@@ -115,12 +109,12 @@ class CirclePainter extends CustomPainter {
           AppColors.pinkPurple,
         ],
       ),
-    );
+      move: value,
+    ).draw(canvas);
 
-    _drawCircle(
-      canvas,
-      rect3,
-      const LinearGradient(
+    GradientCircle(
+      rect: const Rect.fromLTWH(90, 480, 300, 300),
+      gradient: const LinearGradient(
         begin: Alignment.topRight,
         end: Alignment.bottomLeft,
         colors: [
@@ -128,19 +122,8 @@ class CirclePainter extends CustomPainter {
           AppColors.pinkPurple,
         ],
       ),
-    );
-  }
-
-  void _drawCircle(Canvas canvas, Rect rect, LinearGradient gradient) {
-    final paint = Paint()
-      ..blendMode = BlendMode.overlay
-      ..shader = gradient.createShader(rect)
-      ..maskFilter = const MaskFilter.blur(
-        BlurStyle.normal,
-        16,
-      );
-
-    canvas.drawCircle(rect.center, rect.width / 2, paint);
+      move: value,
+    ).draw(canvas);
   }
 
   @override
