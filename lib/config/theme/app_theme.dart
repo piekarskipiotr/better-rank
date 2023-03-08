@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 
 class AppTheme {
@@ -13,6 +14,13 @@ class AppTheme {
     colorScheme: const ColorScheme.dark(),
     scaffoldBackgroundColor: Colors.black.withOpacity(0.8),
   );
+
+  static bool isDarkMode() {
+    final brightness =
+        SchedulerBinding.instance.platformDispatcher.platformBrightness;
+    final isDarkMode = brightness == Brightness.dark;
+    return isDarkMode;
+  }
 
   static void initSystemChromeSettings() {
     SystemChrome.setSystemUIOverlayStyle(
