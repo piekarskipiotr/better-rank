@@ -14,7 +14,7 @@ class GradientCircle {
   void draw(Canvas canvas) {
     final drawRect = Rect.fromLTWH(
       rect.left,
-      rect.top + (move * 100),
+      rect.top + (move * 100 * 2),
       rect.width,
       rect.height,
     );

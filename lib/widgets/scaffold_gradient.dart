@@ -31,7 +31,7 @@ class _ScaffoldGradientState extends State<ScaffoldGradient>
 
     controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 5),
+      duration: const Duration(seconds: 30),
     );
 
     animation = _rotationTween.animate(controller)
@@ -87,7 +87,7 @@ class CirclePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     GradientCircle(
-      rect: const Rect.fromLTWH(60, 254, 300, 300),
+      rect: const Rect.fromLTWH(60, 64, 300, 300),
       gradient: const LinearGradient(
         begin: Alignment.topRight,
         end: Alignment.bottomLeft,
@@ -100,7 +100,7 @@ class CirclePainter extends CustomPainter {
     ).draw(canvas);
 
     GradientCircle(
-      rect: const Rect.fromLTWH(260, 420, 300, 300),
+      rect: const Rect.fromLTWH(260, 254, 300, 300),
       gradient: const LinearGradient(
         begin: Alignment.topRight,
         end: Alignment.bottomLeft,
@@ -113,7 +113,7 @@ class CirclePainter extends CustomPainter {
     ).draw(canvas);
 
     GradientCircle(
-      rect: const Rect.fromLTWH(90, 480, 300, 300),
+      rect: const Rect.fromLTWH(30, 320, 300, 300),
       gradient: const LinearGradient(
         begin: Alignment.topRight,
         end: Alignment.bottomLeft,
