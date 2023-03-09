@@ -2,8 +2,8 @@ import 'package:betterrank/config/config.dart';
 import 'package:betterrank/data/models/gradient_circle.dart';
 import 'package:flutter/material.dart';
 
-class CircleGradient extends CustomPainter {
-  CircleGradient(
+class GradientCirclesPainter extends CustomPainter {
+  GradientCirclesPainter(
     this.value,
   );
 

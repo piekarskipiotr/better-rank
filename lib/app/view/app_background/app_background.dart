@@ -1,26 +1,27 @@
+import 'package:betterrank/app/view/app_background/gradient_circles_painter.dart';
 import 'package:betterrank/config/config.dart';
-import 'package:betterrank/widgets/scaffold_gradient/circle_gradient.dart';
 import 'package:flutter/material.dart';
 
-class ScaffoldGradient extends StatefulWidget {
-  const ScaffoldGradient({
-    required this.scaffold,
+class AppBackground extends StatefulWidget {
+  const AppBackground({
+    required this.app,
     super.key,
   });
 
-  final Scaffold scaffold;
+  final Widget app;
 
   @override
-  State<ScaffoldGradient> createState() => _ScaffoldGradientState();
+  State<AppBackground> createState() => _AppBackgroundState();
 }
 
-class _ScaffoldGradientState extends State<ScaffoldGradient>
+class _AppBackgroundState extends State<AppBackground>
     with SingleTickerProviderStateMixin {
-  late Scaffold _scaffold;
+  late Widget _app;
+
   late Animation<double> _animation;
   late AnimationController _controller;
-
   final Tween<double> _rotationTween = Tween(begin: -1, end: 1);
+
   static const _gradient = LinearGradient(
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
@@ -37,7 +38,7 @@ class _ScaffoldGradientState extends State<ScaffoldGradient>
   @override
   void initState() {
     super.initState();
-    _scaffold = widget.scaffold;
+    _app = widget.app;
 
     _controller = AnimationController(
       vsync: this,
@@ -59,6 +60,9 @@ class _ScaffoldGradientState extends State<ScaffoldGradient>
 
   @override
   Widget build(BuildContext context) {
+    final overlayColor =
+        (AppTheme.isDarkMode() ? Colors.black : Colors.white).withOpacity(0.8);
+
     return DecoratedBox(
       decoration: const BoxDecoration(
         gradient: _gradient,
@@ -67,8 +71,11 @@ class _ScaffoldGradientState extends State<ScaffoldGradient>
         animation: _animation,
         builder: (context, child) {
           return CustomPaint(
-            painter: CircleGradient(_controller.value),
-            child: _scaffold,
+            painter: GradientCirclesPainter(_controller.value),
+            child: ColoredBox(
+              color: overlayColor,
+              child: _app,
+            ),
           );
         },
       ),
