@@ -1,3 +1,14 @@
 {
-    "@@locale": "en"
+  "@@locale": "en",
+  "sign_in_with": "Sign in with {sign_in_method}",
+  "@sign_in_with": {
+    "placeholders": {
+      "sign_in_method": {
+        "type": "String"
+      }
+    }
+  },
+  "sign_in_page_header" : "Hi, firend!\nLets better rank it!",
+  "or" : "or",
+  "continue_as_anon" : "Continue as Anonymous"
 }
