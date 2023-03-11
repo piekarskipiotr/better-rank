@@ -8,15 +8,22 @@ environment:
 
 dependencies:
   bloc: ^8.1.1
+  equatable: ^2.0.3
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.2
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^2.0.3
+  firebase_core: ^2.7.1
+  firebase_auth: ^4.2.10
   go_router: ^6.2.0
   google_fonts: ^4.0.3
   intl: ^0.17.0
+  sign_in_with_apple: ^4.3.0
+  google_sign_in: ^6.0.2
+  get_it: ^7.2.0
+  injectable: ^2.1.0
 
 dev_dependencies:
   bloc_test: ^9.1.1
@@ -24,6 +31,8 @@ dev_dependencies:
     sdk: flutter
   mocktail: ^0.3.0
   very_good_analysis: ^4.0.0
+  injectable_generator: ^2.1.4
+  build_runner: ^2.2.3
 
 flutter:
   uses-material-design: true
