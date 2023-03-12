@@ -21,6 +21,10 @@ class AppRouter {
           child: const SignInPage(),
         ),
       ),
+      GoRoute(
+        path: AppRoutes.accountSetUp,
+        builder: (context, state) => Container(),
+      ),
     ],
   );
 }

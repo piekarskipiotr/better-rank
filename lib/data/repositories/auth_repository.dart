@@ -50,6 +50,14 @@ class AuthRepository {
     }
   }
 
+  Future<void> signInAnonymously() async {
+    try {
+      await FirebaseAuth.instance.signInAnonymously();
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
+
   Future<void> signOut() async {
     try {
       await _firebaseAuth.signOut();
