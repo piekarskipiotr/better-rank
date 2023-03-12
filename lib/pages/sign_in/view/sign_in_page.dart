@@ -1,7 +1,9 @@
 import 'package:betterrank/data/enum/sign_in_method.dart';
+import 'package:betterrank/di/get_it.dart';
 import 'package:betterrank/l10n/l10n.dart';
 import 'package:betterrank/pages/sign_in/bloc/auth_bloc.dart';
 import 'package:betterrank/widgets/buttons/sign_in_button.dart';
+import 'package:betterrank/widgets/loading/bloc/loading_overlay_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +18,9 @@ class SignInPage extends StatelessWidget {
     return BlocConsumer(
       bloc: context.read<AuthBloc>(),
       listener: (context, state) {
-
+        getIt<LoadingOverlayCubit>().changeLoadingState(
+          isLoading: state is Authenticating,
+        );
       },
       builder: (context, state) => Scaffold(
         body: SafeArea(
