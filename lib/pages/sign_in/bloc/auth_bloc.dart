@@ -48,5 +48,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     });
   }
 
+  bool isAuthenticated() => _authRepository.isAuthenticated();
+
   final AuthRepository _authRepository;
 }

@@ -8,11 +8,18 @@ import 'package:go_router/go_router.dart';
 
 class AppRouter {
   final router = GoRouter(
-    initialLocation: AppRoutes.signIn,
+    initialLocation: AppRoutes.root,
     routes: <GoRoute>[
       GoRoute(
         path: AppRoutes.root,
-        builder: (context, state) => const Scaffold(),
+        redirect: (context, state) async {
+          final isAuthenticated = getIt<AuthBloc>().isAuthenticated();
+          if (isAuthenticated) {
+            return AppRoutes.home;
+          }
+
+          return AppRoutes.signIn;
+        },
       ),
       GoRoute(
         path: AppRoutes.signIn,
@@ -23,6 +30,10 @@ class AppRouter {
       ),
       GoRoute(
         path: AppRoutes.accountSetUp,
+        builder: (context, state) => Container(),
+      ),
+      GoRoute(
+        path: AppRoutes.home,
         builder: (context, state) => Container(),
       ),
     ],
