@@ -10,5 +10,7 @@
   },
   "sign_in_page_header" : "Cześć!\nPrzejdźmy do rankowania!",
   "or" : "lub",
-  "continue_as_anon" : "Kontynuuj anonimowo"
+  "continue_as_anon" : "Kontynuuj anonimowo",
+  "finish_setting_up" : "Zakończ",
+  "continue_setting_up" : "Kontynuuj"
 }

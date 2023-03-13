@@ -10,5 +10,7 @@
   },
   "sign_in_page_header" : "Hi, firend!\nLets better rank it!",
   "or" : "or",
-  "continue_as_anon" : "Continue as Anonymous"
+  "continue_as_anon" : "Continue as Anonymous",
+  "finish_setting_up" : "Finish",
+  "continue_setting_up" : "Continue"
 }
