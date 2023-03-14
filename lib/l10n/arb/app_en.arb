@@ -12,5 +12,9 @@
   "or" : "or",
   "continue_as_anon" : "Continue as Anonymous",
   "finish_setting_up" : "Finish",
-  "continue_setting_up" : "Continue"
+  "continue_setting_up" : "Continue",
+  "account_name_header" : "Set your profile name",
+  "account_name_header_sub" : "Set your unique name to identify yourself in our cool community. Take into consideration that you won’t be able to change it later!",
+  "profile_name" : "Profile name",
+  "profile_name_taken" : "Profile name is already taken :("
 }

@@ -8,9 +8,13 @@
       }
     }
   },
-  "sign_in_page_header" : "Cześć!\nPrzejdźmy do rankowania!",
-  "or" : "lub",
-  "continue_as_anon" : "Kontynuuj anonimowo",
-  "finish_setting_up" : "Zakończ",
-  "continue_setting_up" : "Kontynuuj"
+  "sign_in_page_header": "Cześć!\nPrzejdźmy do rankowania!",
+  "or": "lub",
+  "continue_as_anon": "Kontynuuj anonimowo",
+  "finish_setting_up": "Zakończ",
+  "continue_setting_up": "Kontynuuj",
+  "account_name_header": "Ustaw nazwę Twojego konta",
+  "account_name_header_sub": "Ustaw swoją unikalną nazwę, aby zidentyfikować się w naszej fajnej społeczności. Weź pod uwagę, że nie będziesz mógł jej później zmienić!",
+  "profile_name" : "Nazwa konta",
+  "profile_name_taken" : "Nazwa konta już jest zajęta :("
 }

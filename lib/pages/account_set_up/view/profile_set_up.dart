@@ -1,34 +1,43 @@
+import 'package:betterrank/di/get_it.dart';
 import 'package:betterrank/l10n/l10n.dart';
+import 'package:betterrank/pages/account_set_up/bloc/profile_name_cubit.dart';
+import 'package:betterrank/pages/account_set_up/view/profile_name_page.dart';
+import 'package:betterrank/widgets/buttons/back_icon_button.dart';
 import 'package:betterrank/widgets/dot_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AccountSetUp extends StatefulWidget {
-  const AccountSetUp({super.key});
+class ProfileSetUp extends StatefulWidget {
+  const ProfileSetUp({super.key});
 
   @override
-  State<AccountSetUp> createState() => _AccountSetUpState();
+  State<ProfileSetUp> createState() => _ProfileSetUpState();
 }
 
-class _AccountSetUpState extends State<AccountSetUp> {
+class _ProfileSetUpState extends State<ProfileSetUp> {
   final _controller = PageController();
   var _currentPage = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      extendBodyBehindAppBar: true,
       appBar: _appBar(_controller, _currentPage),
       body: SafeArea(
         child: Stack(
           children: [
             PageView(
               controller: _controller,
+              physics: const NeverScrollableScrollPhysics(),
               onPageChanged: (index) => setState(() => _currentPage = index),
-              children: const [
-                Center(child: Text('Page1')),
-                Center(child: Text('Page2')),
-                Center(child: Text('Page3')),
+              children: [
+                BlocProvider.value(
+                  value: getIt<ProfileNameCubit>(),
+                  child: const ProfileNamePage(),
+                ),
+                const Center(child: Text('Page2')),
+                const Center(child: Text('Page3')),
               ],
             ),
             Column(
@@ -66,12 +75,11 @@ class _AccountSetUpState extends State<AccountSetUp> {
       leading: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         child: page != 0
-            ? IconButton(
+            ? BackIconButton(
                 onPressed: () => controller.previousPage(
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.ease,
                 ),
-                icon: const Icon(Icons.arrow_back_ios_new),
               )
             : null,
       ),
