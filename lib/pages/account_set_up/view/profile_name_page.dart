@@ -17,8 +17,9 @@ class ProfileNamePage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(height: 16),
           Text(
-            l10n.account_name_header,
+            l10n.profile_name_header,
             style: GoogleFonts.inter(
               fontWeight: FontWeight.bold,
               fontSize: 36,
@@ -26,7 +27,7 @@ class ProfileNamePage extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            l10n.account_name_header_sub,
+            l10n.profile_name_header_sub,
             textAlign: TextAlign.left,
             style: GoogleFonts.inter(
               fontSize: 16,

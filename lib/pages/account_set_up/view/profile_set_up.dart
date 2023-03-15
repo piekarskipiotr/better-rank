@@ -1,6 +1,7 @@
 import 'package:betterrank/di/get_it.dart';
 import 'package:betterrank/l10n/l10n.dart';
 import 'package:betterrank/pages/account_set_up/bloc/profile_name_cubit.dart';
+import 'package:betterrank/pages/account_set_up/view/profile_avatar_page.dart';
 import 'package:betterrank/pages/account_set_up/view/profile_name_page.dart';
 import 'package:betterrank/widgets/buttons/back_icon_button.dart';
 import 'package:betterrank/widgets/dot_indicator.dart';
@@ -36,7 +37,7 @@ class _ProfileSetUpState extends State<ProfileSetUp> {
                   value: getIt<ProfileNameCubit>(),
                   child: const ProfileNamePage(),
                 ),
-                const Center(child: Text('Page2')),
+                const ProfileAvatarPage(),
                 const Center(child: Text('Page3')),
               ],
             ),

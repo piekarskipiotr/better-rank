@@ -1,3 +1,4 @@
+import 'package:betterrank/config/config.dart';
 import 'package:betterrank/data/enum/sign_in_method.dart';
 import 'package:betterrank/l10n/l10n.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class SignInButton extends StatelessWidget {
           ),
       onPressed: onPressed,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        padding: const EdgeInsets.all(16),
         child: Row(
           children: [
             SvgPicture.asset(
@@ -41,7 +42,9 @@ class SignInButton extends StatelessWidget {
               style: GoogleFonts.inter(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
-                color: Colors.white,
+                color:
+                (AppTheme.isDarkMode() ? Colors.white : Colors.black)
+                    .withOpacity(0.9),
               ),
             ),
           ],
