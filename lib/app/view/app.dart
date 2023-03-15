@@ -15,10 +15,9 @@ class App extends StatelessWidget {
     return AppBackground(
       app: MaterialApp.router(
         // router
-        routerConfig: AppRouter().router,
+        routerConfig: AppRouter().router(),
         builder: (context, child) => BlocProvider.value(
           value: getIt<LoadingOverlayCubit>(),
-          // replace container with some landing page
           child: LoadingOverlay(
             child: child ?? Container(),
           ),
