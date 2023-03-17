@@ -1,10 +1,13 @@
-import 'dart:developer';
+import 'dart:io';
 
 import 'package:betterrank/config/config.dart';
 import 'package:betterrank/l10n/l10n.dart';
+import 'package:betterrank/pages/account_set_up/bloc/profile_avatar_cubit.dart';
 import 'package:betterrank/widgets/buttons/card_icon_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ProfileAvatarPage extends StatelessWidget {
   const ProfileAvatarPage({super.key});
@@ -12,6 +15,8 @@ class ProfileAvatarPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
+    final avatar = context.watch<ProfileAvatarCubit>().avatar;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 36),
       child: Column(
@@ -36,21 +41,26 @@ class ProfileAvatarPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 32),
-          if (false) ...[
-            const Center(
+          if (avatar != null) ...[
+            Center(
               child: CircleAvatar(
                 radius: 96,
-                backgroundImage: NetworkImage('https://avatars.githubusercontent.com/u/62793427'),
                 backgroundColor: Colors.transparent,
+                backgroundImage: FileImage(
+                  File(avatar.path),
+                ),
               ),
             ),
             const SizedBox(height: 16),
             GestureDetector(
-              onTap: () => log('clicked'),
+              onTap: () => context.read<ProfileAvatarCubit>().changeAvatar(),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(Icons.edit, size: 18,),
+                  const Icon(
+                    Icons.edit,
+                    size: 18,
+                  ),
                   const SizedBox(width: 4),
                   Text(l10n.change_image)
                 ],
@@ -61,14 +71,18 @@ class ProfileAvatarPage extends StatelessWidget {
               icon: '📷',
               title: l10n.take_a_selfie,
               subTitle: l10n.take_a_selfie_desc,
-              onPressed: () {},
+              onPressed: () => context
+                  .read<ProfileAvatarCubit>()
+                  .pickImage(source: ImageSource.camera),
             ),
             const SizedBox(height: 24),
             CardIconButton(
               icon: '🗂️',
               title: l10n.upload_image_avatar,
               subTitle: l10n.upload_image_avatar_desc,
-              onPressed: () {},
+              onPressed: () => context
+                  .read<ProfileAvatarCubit>()
+                  .pickImage(source: ImageSource.gallery),
             ),
           ],
         ],

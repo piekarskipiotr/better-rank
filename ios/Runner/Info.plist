@@ -73,5 +73,9 @@
     <array>
         <string>_dartobservatory._tcp</string>
     </array>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Pick images from gallery to upload avatar, images for ranks</string>
+    <key>NSCameraUsageDescription</key>
+    <string>To take picture for avatar or ranks purpose</string>
 </dict>
 </plist>
