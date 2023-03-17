@@ -7,8 +7,8 @@ import 'package:injectable/injectable.dart';
 class ProfileAvatarCubit extends Cubit<ProfileAvatarState> {
   ProfileAvatarCubit() : super(AvatarChanged());
 
-  final _imagePicker = ImagePicker();
   XFile? avatar;
+  final _imagePicker = ImagePicker();
 
   void changeAvatar() {
     avatar = null;
@@ -21,6 +21,7 @@ class ProfileAvatarCubit extends Cubit<ProfileAvatarState> {
       source: source,
       preferredCameraDevice: CameraDevice.front,
     );
+
     emit(AvatarChanged());
   }
 }

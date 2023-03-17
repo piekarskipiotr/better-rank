@@ -42,9 +42,11 @@ class ProfileNamePage extends StatelessWidget {
               final isValid = context.read<ProfileNameCubit>().isValid;
 
               return TextFormField(
+                initialValue: context.read<ProfileNameCubit>().profileName,
+                onChanged: (n) => context
+                    .read<ProfileNameCubit>()
+                    .validateProfileName(n.trim()),
                 style: GoogleFonts.inter(),
-                onChanged: (n) =>
-                    context.read<ProfileNameCubit>().validateProfileName(n),
                 decoration: InputDecoration(
                   hintText: l10n.profile_name,
                   hintStyle: GoogleFonts.inter(),

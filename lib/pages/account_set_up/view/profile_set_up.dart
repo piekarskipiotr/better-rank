@@ -23,50 +23,53 @@ class _ProfileSetUpState extends State<ProfileSetUp> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: _appBar(_controller, _currentPage),
-      body: SafeArea(
-        child: Stack(
-          children: [
-            PageView(
-              controller: _controller,
-              physics: const NeverScrollableScrollPhysics(),
-              onPageChanged: (index) => setState(() => _currentPage = index),
-              children: [
-                BlocProvider.value(
-                  value: getIt<ProfileNameCubit>(),
-                  child: const ProfileNamePage(),
-                ),
-                BlocProvider.value(
-                  value: getIt<ProfileAvatarCubit>(),
-                  child: const ProfileAvatarPage(),
-                ),
-                const Center(child: Text('Page3')),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ...List.generate(
-                      3,
-                      (index) => DotIndicator(
-                        isActive: index == _currentPage,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: _appBar(_controller, _currentPage),
+        body: SafeArea(
+          child: Stack(
+            children: [
+              PageView(
+                controller: _controller,
+                physics: const NeverScrollableScrollPhysics(),
+                onPageChanged: (index) => setState(() => _currentPage = index),
+                children: [
+                  BlocProvider.value(
+                    value: getIt<ProfileNameCubit>(),
+                    child: const ProfileNamePage(),
+                  ),
+                  BlocProvider.value(
+                    value: getIt<ProfileAvatarCubit>(),
+                    child: const ProfileAvatarPage(),
+                  ),
+                  const Center(child: Text('Page3')),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ...List.generate(
+                        3,
+                        (index) => DotIndicator(
+                          isActive: index == _currentPage,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 24),
-                AnimatedContainer(
-                  duration: const Duration(milliseconds: 300),
-                  child: _continueButton(context, _controller, _currentPage),
-                ),
-              ],
-            ),
-          ],
+                    ],
+                  ),
+                  const SizedBox(height: 24),
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    child: _continueButton(context, _controller, _currentPage),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
