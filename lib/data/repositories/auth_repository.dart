@@ -70,6 +70,25 @@ class AuthRepository {
     }
   }
 
+  Future<dynamic> updateProfile({
+    required String name,
+    required String? avatarURL,
+  }) async {
+    try {
+      final user = _firebaseAuth.currentUser;
+      if (user == null) {
+        throw Exception('user-unauthenticated');
+      }
+
+      await user.updateDisplayName(name);
+      if (avatarURL != null) {
+        await user.updatePhotoURL(avatarURL);
+      }
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
+
   String _getAppleUserFullName({
     required AuthorizationCredentialAppleID credentials,
   }) =>

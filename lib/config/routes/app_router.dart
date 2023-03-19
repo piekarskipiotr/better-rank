@@ -1,9 +1,12 @@
 import 'package:betterrank/config/config.dart';
 import 'package:betterrank/di/get_it.dart';
+import 'package:betterrank/pages/account_set_up/bloc/profile_set_up_bloc.dart';
 import 'package:betterrank/pages/account_set_up/view/profile_set_up.dart';
+import 'package:betterrank/pages/account_set_up/view/profile_set_up_finish.dart';
 import 'package:betterrank/pages/permissions_rationale/permission_rationale_page.dart';
 import 'package:betterrank/pages/sign_in/bloc/auth_bloc.dart';
 import 'package:betterrank/pages/sign_in/view/sign_in_page.dart';
+import 'package:betterrank/widgets/loading/bloc/loading_overlay_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -46,11 +49,23 @@ class AppRouter {
           ),
           GoRoute(
             path: AppRoutes.accountSetUp,
-            builder: (context, state) => const ProfileSetUp(),
+            builder: (context, state) => MultiBlocProvider(
+              providers: [
+                BlocProvider.value(value: getIt<ProfileSetUpBloc>()),
+                BlocProvider.value(value: getIt<LoadingOverlayCubit>()),
+              ],
+              child: const ProfileSetUp(),
+            ),
+          ),
+          GoRoute(
+            path: AppRoutes.accountSetUpFinish,
+            builder: (context, state) => const ProfileSetUpFinish(),
           ),
           GoRoute(
             path: AppRoutes.home,
-            builder: (context, state) => const ProfileSetUp(),
+            builder: (context, state) => const Center(
+              child: Text('home'),
+            ),
           ),
         ],
       );
