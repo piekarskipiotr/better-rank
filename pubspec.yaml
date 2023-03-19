@@ -27,6 +27,7 @@ dependencies:
   cloud_firestore: ^4.4.4
   image_picker: ^0.8.7
   permission_handler: ^10.2.0
+  lottie: ^2.3.0
 
 dev_dependencies:
   bloc_test: ^9.1.1
@@ -42,3 +43,4 @@ flutter:
   generate: true
   assets:
     - assets/logos/
+    - assets/anim/
