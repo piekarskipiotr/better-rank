@@ -14,8 +14,12 @@ class LoggingOut extends AuthState {
 }
 
 class Authenticated extends AuthState {
+  Authenticated({required this.isAnonymous});
+
+  final bool isAnonymous;
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [isAnonymous];
 }
 
 class UnAuthenticated extends AuthState {

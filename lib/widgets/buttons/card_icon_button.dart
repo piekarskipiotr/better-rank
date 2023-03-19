@@ -18,10 +18,13 @@ class CardIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bgColor = AppTheme.isDarkMode() ? Colors.black : Colors.white;
+    final textColor = AppTheme.isDarkMode() ? Colors.white : Colors.black;
+
     return ElevatedButton(
       onPressed: onPressed,
       style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
-            backgroundColor: MaterialStateProperty.all(Colors.black),
+            backgroundColor: MaterialStateProperty.all(bgColor),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(32),
@@ -34,7 +37,7 @@ class CardIconButton extends StatelessWidget {
           children: [
             Text(
               icon,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 48,
               ),
             ),
@@ -52,22 +55,22 @@ class CardIconButton extends StatelessWidget {
                     style: GoogleFonts.inter(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
-                      color:
-                          AppTheme.isDarkMode() ? Colors.white : Colors.black,
+                      color: textColor,
                     ),
                   ),
                   const SizedBox(
                     height: 2,
                   ),
-                  Text(
-                    '$subTitle\n\n',
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.inter(
-                      fontSize: 12,
-                      color:
-                          (AppTheme.isDarkMode() ? Colors.white : Colors.black)
-                              .withOpacity(0.9),
+                  Opacity(
+                    opacity: 0.9,
+                    child: Text(
+                      '$subTitle\n\n',
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.inter(
+                        fontSize: 12,
+                        color: textColor,
+                      ),
                     ),
                   ),
                 ],

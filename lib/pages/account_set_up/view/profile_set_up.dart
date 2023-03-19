@@ -44,7 +44,6 @@ class _ProfileSetUpState extends State<ProfileSetUp> {
                     value: getIt<ProfileAvatarCubit>(),
                     child: const ProfileAvatarPage(),
                   ),
-                  const Center(child: Text('Page3')),
                 ],
               ),
               Column(
@@ -54,7 +53,7 @@ class _ProfileSetUpState extends State<ProfileSetUp> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ...List.generate(
-                        3,
+                        2,
                         (index) => DotIndicator(
                           isActive: index == _currentPage,
                         ),
@@ -100,7 +99,7 @@ class _ProfileSetUpState extends State<ProfileSetUp> {
     int page,
   ) {
     final l10n = context.l10n;
-    final isLastPage = page == 2;
+    final isLastPage = page == 1;
 
     return InkWell(
       onTap: () => isLastPage
@@ -118,7 +117,6 @@ class _ProfileSetUpState extends State<ProfileSetUp> {
           style: GoogleFonts.inter(
             fontSize: 16,
             fontWeight: FontWeight.w600,
-            color: Colors.white,
           ),
         ),
       ),

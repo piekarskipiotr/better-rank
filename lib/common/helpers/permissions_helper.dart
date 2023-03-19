@@ -1,5 +1,6 @@
-import 'package:betterrank/pages/permissions_rationale/permission_rationale_page.dart';
+import 'package:betterrank/config/config.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class PermissionHelper {
@@ -24,10 +25,7 @@ class PermissionHelper {
     PermissionStatus req,
   ) {
     if (req.isDenied || req.isPermanentlyDenied) {
-      showDialog<dynamic>(
-        context: context,
-        builder: (context) => PermissionRationalePage(permission: perm),
-      );
+      context.push(AppRoutes.permissionRationale, extra: perm);
     }
 
     return req;

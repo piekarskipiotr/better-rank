@@ -24,7 +24,10 @@ class SignInPage extends StatelessWidget {
             .changeLoadingState(isLoading: state is Authenticating);
 
         if (state is Authenticated) {
-          context.go(AppRoutes.accountSetUp);
+          final isAnon = state.isAnonymous;
+          context.pushReplacement(
+            isAnon ? AppRoutes.home : AppRoutes.accountSetUp,
+          );
         }
       },
       builder: (context, state) => Scaffold(

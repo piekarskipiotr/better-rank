@@ -73,16 +73,16 @@ class ProfileAvatarPage extends StatelessWidget {
               subTitle: l10n.take_a_selfie_desc,
               onPressed: () => context
                   .read<ProfileAvatarCubit>()
-                  .pickImage(source: ImageSource.camera),
+                  .pickImage(context: context, source: ImageSource.camera),
             ),
             const SizedBox(height: 24),
             CardIconButton(
-              icon: '🗂️',
+              icon: '🖼️️',
               title: l10n.upload_image_avatar,
               subTitle: l10n.upload_image_avatar_desc,
               onPressed: () => context
                   .read<ProfileAvatarCubit>()
-                  .pickImage(source: ImageSource.gallery),
+                  .pickImage(context: context, source: ImageSource.gallery),
             ),
           ],
         ],

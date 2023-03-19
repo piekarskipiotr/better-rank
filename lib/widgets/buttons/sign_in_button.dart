@@ -18,10 +18,12 @@ class SignInButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
+    final bgColor = AppTheme.isDarkMode() ? Colors.black : Colors.white;
+    final textColor = AppTheme.isDarkMode() ? Colors.white : Colors.black;
 
     return ElevatedButton(
       style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
-            backgroundColor: MaterialStateProperty.all(Colors.black),
+            backgroundColor: MaterialStateProperty.all(bgColor),
           ),
       onPressed: onPressed,
       child: Padding(
@@ -42,9 +44,7 @@ class SignInButton extends StatelessWidget {
               style: GoogleFonts.inter(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
-                color:
-                (AppTheme.isDarkMode() ? Colors.white : Colors.black)
-                    .withOpacity(0.9),
+                color: textColor,
               ),
             ),
           ],
