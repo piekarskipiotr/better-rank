@@ -31,6 +31,18 @@ class _ProfileSetUpState extends State<ProfileSetUp> {
     getIt<ProfileNameCubit>().clearName();
   }
 
+  String _getErrorTranslation(BuildContext context, String error) {
+    final l10n = context.l10n;
+
+    if (error.contains('missing-profile-name')) {
+      return l10n.empty_profile_name;
+    } else if (error.contains('name-already-exists')) {
+      return l10n.profile_name_taken;
+    } else {
+      return error;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocListener(
@@ -46,10 +58,11 @@ class _ProfileSetUpState extends State<ProfileSetUp> {
           );
 
           final error = state.error;
+          final translatedError = _getErrorTranslation(context, error);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
-                error,
+                translatedError,
                 style: GoogleFonts.inter(
                   color: Colors.white,
                 ),

@@ -17,6 +17,7 @@
   "profile_name_header_sub": "Set your unique name to identify yourself in our cool community. Take into consideration that you won’t be able to change it later!",
   "profile_name": "Profile name",
   "profile_name_taken": "Profile name is already taken :(",
+  "empty_profile_name": "Profile name field cannot be empty!",
   "profile_avatar_header": "How do you look like?",
   "profile_avatar_header_sub": "Set your profile avatar to describe your look, personality and more! Show how cool you are!",
   "take_a_selfie": "Take a selfie",
@@ -32,5 +33,5 @@
   "photos_perm_desc": "The application requires this permission so that you can select photos from your gallery",
   "profile_finish_header": "Everything look’s good!",
   "profile_finish_header_sub": "Now, the app is open for you! Find interesting you quizes and rankings or become the creator of one of them \uD83D\uDCAA",
-  "start_app" : "Start using the app"
+  "start_app": "Start using the app"
 }
