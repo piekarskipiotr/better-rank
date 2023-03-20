@@ -31,7 +31,11 @@ class ProfileSetUpBloc extends Bloc<ProfileSetUpEvent, ProfileSetUpState> {
           throw Exception('missing-profile-name');
         }
 
-        await _firestoreRepository.addProfileName(profileName);
+        await _firestoreRepository
+            .addProfileName(profileName)
+            .onError((error, stackTrace) {
+          _nameCubit.validateProfileName(profileName);
+        });
 
         if (profileAvatar != null) {
           try {
