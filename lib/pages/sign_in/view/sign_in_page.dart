@@ -54,11 +54,13 @@ class SignInPage extends StatelessWidget {
               ),
               const SizedBox(height: 32),
               Align(
-                child: Text(
-                  l10n.or,
-                  style: GoogleFonts.inter(
-                    fontSize: 16,
-                    color: Colors.white.withOpacity(0.8),
+                child: Opacity(
+                  opacity: 0.8,
+                  child: Text(
+                    l10n.or,
+                    style: GoogleFonts.inter(
+                      fontSize: 16,
+                    ),
                   ),
                 ),
               ),
@@ -102,7 +104,6 @@ class SignInPage extends StatelessWidget {
           style: GoogleFonts.inter(
             fontSize: 16,
             fontWeight: FontWeight.w600,
-            color: Colors.white,
           ),
         ),
       ),

@@ -11,7 +11,7 @@ class AppTheme {
     colorScheme: const ColorScheme.light(
       primary: AppColors.primaryBlue,
     ),
-    scaffoldBackgroundColor: Colors.white.withOpacity(0),
+    scaffoldBackgroundColor: Colors.white.withOpacity(0.8),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all(AppColors.primaryBlue),
@@ -83,7 +83,7 @@ class AppTheme {
     colorScheme: const ColorScheme.dark(
       primary: AppColors.primaryBlue,
     ),
-    scaffoldBackgroundColor: Colors.black.withOpacity(0),
+    scaffoldBackgroundColor: Colors.black.withOpacity(0.8),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all(AppColors.primaryBlue),

@@ -60,9 +60,6 @@ class _AppBackgroundState extends State<AppBackground>
 
   @override
   Widget build(BuildContext context) {
-    final overlayColor =
-        (AppTheme.isDarkMode() ? Colors.black : Colors.white).withOpacity(0.8);
-
     return DecoratedBox(
       decoration: const BoxDecoration(
         gradient: _gradient,
@@ -72,10 +69,7 @@ class _AppBackgroundState extends State<AppBackground>
         builder: (context, child) {
           return CustomPaint(
             painter: GradientCirclesPainter(_controller.value),
-            child: ColoredBox(
-              color: overlayColor,
-              child: _app,
-            ),
+            child: _app,
           );
         },
       ),
