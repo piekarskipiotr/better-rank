@@ -1,5 +1,6 @@
 import 'package:betterrank/data/repositories/auth_repository.dart';
 import 'package:betterrank/data/repositories/cloud_storage_repository.dart';
+import 'package:betterrank/data/repositories/firestore_repository.dart';
 import 'package:betterrank/pages/account_set_up/bloc/profile_avatar_cubit.dart';
 import 'package:betterrank/pages/account_set_up/bloc/profile_name_cubit.dart';
 import 'package:bloc/bloc.dart';
@@ -13,6 +14,7 @@ part 'profile_set_up_state.dart';
 @lazySingleton
 class ProfileSetUpBloc extends Bloc<ProfileSetUpEvent, ProfileSetUpState> {
   ProfileSetUpBloc(
+    this._firestoreRepository,
     this._cloudStorageRepository,
     this._authRepository,
     this._nameCubit,
@@ -28,6 +30,8 @@ class ProfileSetUpBloc extends Bloc<ProfileSetUpEvent, ProfileSetUpState> {
         if (profileName == null) {
           throw Exception('missing-profile-name');
         }
+
+        await _firestoreRepository.addProfileName(profileName);
 
         if (profileAvatar != null) {
           try {
@@ -56,6 +60,7 @@ class ProfileSetUpBloc extends Bloc<ProfileSetUpEvent, ProfileSetUpState> {
     });
   }
 
+  final FirestoreRepository _firestoreRepository;
   final CloudStorageRepository _cloudStorageRepository;
   final AuthRepository _authRepository;
   final ProfileNameCubit _nameCubit;

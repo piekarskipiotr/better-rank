@@ -26,6 +26,12 @@ class _ProfileSetUpState extends State<ProfileSetUp> {
   var _currentPage = 0;
 
   @override
+  void initState() {
+    super.initState();
+    getIt<ProfileNameCubit>().clearName();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocListener(
       bloc: getIt<ProfileSetUpBloc>(),
@@ -34,9 +40,22 @@ class _ProfileSetUpState extends State<ProfileSetUp> {
           getIt<LoadingOverlayCubit>().changeLoadingState(
             isLoading: true,
           );
-        } else if (state is SettingUpFailed || state is UploadingFailed) {
+        } else if (state is SettingUpFailed) {
           getIt<LoadingOverlayCubit>().changeLoadingState(
             isLoading: false,
+          );
+
+          final error = state.error;
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                error,
+                style: GoogleFonts.inter(
+                  color: Colors.white,
+                ),
+              ),
+              backgroundColor: AppColors.red,
+            ),
           );
         } else if (state is SettingUpSucceeded) {
           getIt<LoadingOverlayCubit>().changeLoadingState(

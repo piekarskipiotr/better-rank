@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:betterrank/data/repositories/auth_repository.dart';
 import 'package:betterrank/data/repositories/firestore_repository.dart';
 import 'package:betterrank/pages/account_set_up/bloc/profile_name_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,14 +7,10 @@ import 'package:injectable/injectable.dart';
 @lazySingleton
 class ProfileNameCubit extends Cubit<ProfileNameState> {
   ProfileNameCubit(
-    this._authRepository,
     this._firestoreRepository,
-  ) : super(ProfileNameValidated()) {
-    profileName = _authRepository.getCurrentUser()?.displayName;
-  }
+  ) : super(ProfileNameValidated());
 
   final FirestoreRepository _firestoreRepository;
-  final AuthRepository _authRepository;
   Timer? _debounce;
 
   String? profileName;
@@ -41,4 +36,6 @@ class ProfileNameCubit extends Cubit<ProfileNameState> {
       emit(ProfileNameValidated());
     });
   }
+
+  void clearName() => profileName = null;
 }
