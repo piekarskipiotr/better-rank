@@ -8,6 +8,7 @@ import 'package:betterrank/pages/account_set_up/view/profile_avatar_page.dart';
 import 'package:betterrank/pages/account_set_up/view/profile_name_page.dart';
 import 'package:betterrank/widgets/buttons/back_icon_button.dart';
 import 'package:betterrank/widgets/dot_indicator.dart';
+import 'package:betterrank/widgets/error_snackbar.dart';
 import 'package:betterrank/widgets/loading/bloc/loading_overlay_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,18 +32,6 @@ class _ProfileSetUpState extends State<ProfileSetUp> {
     getIt<ProfileNameCubit>().clearName();
   }
 
-  String _getErrorTranslation(BuildContext context, String error) {
-    final l10n = context.l10n;
-
-    if (error.contains('missing-profile-name')) {
-      return l10n.empty_profile_name;
-    } else if (error.contains('name-already-exists')) {
-      return l10n.profile_name_taken;
-    } else {
-      return error;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocListener(
@@ -58,17 +47,8 @@ class _ProfileSetUpState extends State<ProfileSetUp> {
           );
 
           final error = state.error;
-          final translatedError = _getErrorTranslation(context, error);
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                translatedError,
-                style: GoogleFonts.inter(
-                  color: Colors.white,
-                ),
-              ),
-              backgroundColor: AppColors.red,
-            ),
+            errorSnackbar(context: context, error: error),
           );
         } else if (state is SettingUpSucceeded) {
           getIt<LoadingOverlayCubit>().changeLoadingState(
