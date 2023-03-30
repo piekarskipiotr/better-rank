@@ -33,5 +33,10 @@
   "photos_perm_desc": "The application requires this permission so that you can select photos from your gallery",
   "profile_finish_header": "Everything look’s good!",
   "profile_finish_header_sub": "Now, the app is open for you! Find interesting you quizes and rankings or become the creator of one of them \uD83D\uDCAA",
-  "start_app": "Start using the app"
+  "start_app": "Start using the app",
+  "trending" : "Trending",
+  "search" : "Search",
+  "create" : "Create",
+  "notifications" : "Notifications",
+  "profile" : "Profile"
 }

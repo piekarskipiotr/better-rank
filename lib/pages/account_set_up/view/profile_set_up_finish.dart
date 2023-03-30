@@ -59,7 +59,7 @@ class ProfileSetUpFinish extends StatelessWidget {
                 ),
                 const Spacer(),
                 InkWell(
-                  onTap: () => context.go(AppRoutes.home),
+                  onTap: () => context.go(AppRoutes.trending),
                   child: Container(
                     width: double.infinity,
                     padding: const EdgeInsets.symmetric(vertical: 24),

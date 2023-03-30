@@ -26,7 +26,7 @@ class SignInPage extends StatelessWidget {
         if (state is Authenticated) {
           final isAnon = state.isAnonymous;
           context.pushReplacement(
-            isAnon ? AppRoutes.home : AppRoutes.accountSetUp,
+            isAnon ? AppRoutes.trending : AppRoutes.accountSetUp,
           );
         }
       },

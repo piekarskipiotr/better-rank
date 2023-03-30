@@ -33,5 +33,10 @@
   "photos_perm_desc": "Aplikacja wymaga tego zezwolenia abyś mógł wybrać zdjęcia z Twojej galerii",
   "profile_finish_header": "Wszystko gotowe!",
   "profile_finish_header_sub": "Teraz aplikacja jest otwarta dla Ciebie! Znajdź interesujące Cię quizy i rankingi lub zostań twórcą jednego z nich \uD83D\uDCAA",
-  "start_app": "Zacznij korzystać z aplikacji"
+  "start_app": "Zacznij korzystać z aplikacji",
+  "trending" : "Popularne",
+  "search" : "Szukaj",
+  "Create" : "Stwórz",
+  "notifications" : "Powiadomienia",
+  "profile" : "Profil"
 }
