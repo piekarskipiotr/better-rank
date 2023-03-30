@@ -86,35 +86,45 @@ class AppRouter {
                 path: AppRoutes.trending,
                 parentNavigatorKey: _shellNavigatorKey,
                 pageBuilder: (context, state) => const NoTransitionPage(
-                  child: Center(child: Text('Trending')),
+                  child: Center(
+                    child: Text(AppRoutes.trending),
+                  ),
                 ),
               ),
               GoRoute(
                 path: AppRoutes.search,
                 parentNavigatorKey: _shellNavigatorKey,
                 pageBuilder: (context, state) => const NoTransitionPage(
-                  child: Center(child: Text('Search')),
+                  child: Center(
+                    child: Text(AppRoutes.search),
+                  ),
                 ),
               ),
               GoRoute(
                 path: AppRoutes.create,
                 parentNavigatorKey: _shellNavigatorKey,
                 pageBuilder: (context, state) => const NoTransitionPage(
-                  child: Center(child: Text('Create')),
+                  child: Center(
+                    child: Text(AppRoutes.create),
+                  ),
                 ),
               ),
               GoRoute(
                 path: AppRoutes.notifications,
                 parentNavigatorKey: _shellNavigatorKey,
                 pageBuilder: (context, state) => const NoTransitionPage(
-                  child: Center(child: Text('Notifications')),
+                  child: Center(
+                    child: Text(AppRoutes.notifications),
+                  ),
                 ),
               ),
               GoRoute(
                 path: AppRoutes.profile,
                 parentNavigatorKey: _shellNavigatorKey,
                 pageBuilder: (context, state) => const NoTransitionPage(
-                  child: Center(child: Text('Profile')),
+                  child: Center(
+                    child: Text(AppRoutes.profile),
+                  ),
                 ),
               ),
             ],

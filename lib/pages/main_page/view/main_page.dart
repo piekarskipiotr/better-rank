@@ -14,8 +14,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  late Widget _child;
-
   var _currentIndex = 0;
   final List<String> _pages = [
     AppRoutes.trending,
@@ -24,12 +22,6 @@ class _MainPageState extends State<MainPage> {
     AppRoutes.notifications,
     AppRoutes.profile,
   ];
-
-  @override
-  void initState() {
-    super.initState();
-    _child = widget.child;
-  }
 
   void _onTabClick(int index) {
     if (index == _currentIndex) return;
@@ -40,13 +32,14 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
+    final child = widget.child;
 
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
-      body: SafeArea(child: _child),
+      body: SafeArea(child: child),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _onTabClick,
