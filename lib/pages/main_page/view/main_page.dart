@@ -35,10 +35,6 @@ class _MainPageState extends State<MainPage> {
     final child = widget.child;
 
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
       body: SafeArea(child: child),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,

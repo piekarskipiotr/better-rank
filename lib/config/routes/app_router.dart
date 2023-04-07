@@ -3,6 +3,7 @@ import 'package:betterrank/di/get_it.dart';
 import 'package:betterrank/pages/account_set_up/bloc/profile_set_up_bloc.dart';
 import 'package:betterrank/pages/account_set_up/view/profile_set_up.dart';
 import 'package:betterrank/pages/account_set_up/view/profile_set_up_finish.dart';
+import 'package:betterrank/pages/create_rank/ui/create_rank_page.dart';
 import 'package:betterrank/pages/main_page/view/main_page.dart';
 import 'package:betterrank/pages/permissions_rationale/permission_rationale_page.dart';
 import 'package:betterrank/pages/sign_in/bloc/auth_bloc.dart';
@@ -104,9 +105,7 @@ class AppRouter {
                 path: AppRoutes.create,
                 parentNavigatorKey: _shellNavigatorKey,
                 pageBuilder: (context, state) => const NoTransitionPage(
-                  child: Center(
-                    child: Text(AppRoutes.create),
-                  ),
+                  child: CreateRankPage(),
                 ),
               ),
               GoRoute(

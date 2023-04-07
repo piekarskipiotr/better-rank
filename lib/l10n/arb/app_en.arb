@@ -38,5 +38,7 @@
   "search" : "Search",
   "create" : "Create",
   "notifications" : "Notifications",
-  "profile" : "Profile"
+  "profile" : "Profile",
+  "add_cover_image" : "Add cover image",
+  "add_choice" : "Add choice"
 }

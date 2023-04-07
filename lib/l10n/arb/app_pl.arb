@@ -38,5 +38,7 @@
   "search" : "Szukaj",
   "Create" : "Stwórz",
   "notifications" : "Powiadomienia",
-  "profile" : "Profil"
+  "profile" : "Profil",
+  "add_cover_image" : "Dodaj zdjęcie okładki",
+  "add_choice" : "Dodaj wybór"
 }
